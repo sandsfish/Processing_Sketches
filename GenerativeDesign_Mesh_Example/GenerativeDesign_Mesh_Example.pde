@@ -1,6 +1,5 @@
 /**
  * Part of the example files of the generativedesign library.
- *
  * Shows how to use the Mesh class.
  */
 import generativedesign.*;
@@ -39,6 +38,5 @@ void draw() {
   myMesh.setColorRange(0, 0, 100, 100, 40, 40, 100);
   myMesh.draw();
   
-  //save(“images/”+str(t)+”.gif”);
   saveFrame("images/steinbachscrew-######.gif");
 }
