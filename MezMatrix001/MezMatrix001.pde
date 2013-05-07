@@ -1,6 +1,3 @@
-
-// Fill the screen with a matrix of animated circles
-
 float time = 0;
 float radius = 0;
 
