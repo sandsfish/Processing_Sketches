@@ -80,5 +80,5 @@ void mousePressed() {
 void keyPressed() {
 //  if(keyCode == ENTER) {
 //    gifExport.finish();
-  }
+//  }
 }
