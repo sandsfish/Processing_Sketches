@@ -4,7 +4,7 @@ class CA {
   int w = 10;
   //The CA should keep track of how many generations.
   int generation = 0;
-
+  
   CA() {
     cells = new int[width/w];
     ruleset = new int[] {0, 1, 0, 1, 1, 0, 1, 0};
@@ -31,11 +31,16 @@ class CA {
     return ruleset[index];
   }
 
+  void display() {
   for (int i = 0; i < cells.length; i++) {
-    if (cells[i] == 1) {fill(0);} 
-    else {              fill(255);}
+    if (cells[i] == 1) {
+      fill(0);
+    } else {
+      fill(255);
+    }
     //Set the y-location according to the generation.
     rect(i*w, generation*w, w, w);
+  }
   }
 }
 
