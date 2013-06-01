@@ -1,9 +1,12 @@
 class CA {
   int[] cells;
   int[] ruleset;
-  int w = 10;
+  int w = 2;
   //The CA should keep track of how many generations.
   int generation = 0;
+  color firstColor = color(25, 25, 255);
+  color secondColor = color(255, 44, 50);
+  color genColor = firstColor;
 
   CA() {
     cells = new int[width/w];
@@ -23,6 +26,10 @@ class CA {
       nextgen[i] = rules(left, me, right);
     }
     cells = nextgen;
+    
+    // advance lerp per generation
+    genColor = lerpColor(firstColor, secondColor, map(generation, 0, height/w, 0.0, 1.0));
+    
     //Increment the generation counter.
     generation++;
   }
@@ -34,19 +41,10 @@ class CA {
   }
 
   void display() {
-    color firstColor = color(25, 255, 255);
-    color secondColor = color(255, 44, 50);
-    color genColor = firstColor;
-    
     for (int i = 0; i < cells.length; i++) {
-      println(i);
-      //if(i % cells.length == 0) { 
-        println(i);
-        genColor = lerpColor(firstColor, secondColor, map(i, 0, cells.length, 0.0, 1.0));
-      //}
       if (cells[i] == 1) {
         stroke(1);
-        fill(100);
+        fill(255);
       } else {
         fill(genColor);
       }
@@ -55,4 +53,3 @@ class CA {
     }
   }
 }
-
