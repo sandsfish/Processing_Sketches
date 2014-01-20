@@ -1,17 +1,25 @@
+import java.util.Date;
+
 boolean redrawShape = false;
 float xPos, yPos;
 PVector xCenter, yCenter;
 PolyShape shape;
+String currentRun;
 
 void setup() {
-  size(700, 394, OPENGL);
+  size(displayWidth, displayHeight, OPENGL);
   stroke(0, 100);
-  fill(30, 100);
+  fill(30, 50);
   stroke(0, 0, 200);
+//  noStroke();
   strokeWeight(2);
   
-  shape = new PolyShape(20);
+//  shape = new PolyShape(20);
+  shape = new PolyShape(400);
   smooth();
+  
+  Date d = new Date();
+  currentRun = String.valueOf(d.getDay()) + String.valueOf(d.getHours()) + String.valueOf(d.getMinutes());
 }
 
 void doSomething() {
@@ -35,7 +43,11 @@ void draw() {
   fill(30, 100);
   background(200);
   
+  shape.update();
   shape.display();
+  
+  
+  saveFrame("/Users/sands/Movies/PROCESSING/sands_3D_PolyShape/frames" + currentRun + "/intersects#####.tiff");
 }
 
 void mouseMoved() {

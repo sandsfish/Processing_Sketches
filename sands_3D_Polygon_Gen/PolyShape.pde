@@ -12,10 +12,11 @@ class PolyShape {
  
   void update() {
     for(PVector p : vertices) {
-      t += 0.001;
+//      t += 0.001;
+      t += 0.001 + random(0.1);
       DEFORM_RANGE = (int)map(noise(t), -1, 1, -20, 20);
       
-      fill(map(DEFORM_RANGE, -5, 5, 0, 250));
+      fill(map(DEFORM_RANGE, -5, 5, 0, 250), 100);
       
       p.x += random(-DEFORM_RANGE, DEFORM_RANGE);
       p.y += random(-DEFORM_RANGE, DEFORM_RANGE);
@@ -32,6 +33,8 @@ class PolyShape {
   }
   
   void regen() {
+    int numberOfVertices = (int)map(mouseY , 1, height, 2, 500);
+    vertices = new PVector[numberOfVertices];
     for (int i = 0; i < vertices.length; i++) {
       vertices[i] = new PVector(random(width/1.5)+50, random(height/1.5)+50, random(-500, 500));
     }
